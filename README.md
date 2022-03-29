@@ -102,7 +102,7 @@ Java (v1.8.0+)
 - \<sample\>_LargeMTDeletions_DNAorRNA_Top30_NARpub.txt
   - `<sample>_LargeMTDeletions_DNAorRNA_Top30_NARpub.txt` is the file containing only the “Top 30 deletions” described in the Splice-Break paper (https://doi.org/10.1093/nar/gkz164). Only deletions that were detected will be present (i.e., will not annotate a “Top 30” deletion to ‘0’ if it was not detected). **This file can be used to examine a small list of high-frequency mtDNA deletions that have been experimentally validated, and can be used for both DNA and RNA datasets**. See [link TBD] for additional information on applicable RNA-Seq data.
 - Benchmark.txt
-  - `Benchmark.txt` has the average coverage (depth) across the benchmark positions described in the Splice-Break paper (https://doi.org/10.1093/nar/gkz164). This value is used for normalization (% calculations) of the large mtDNA deletions, and is also provided within the ‘\<sample\> _LargeMTDeletions_’ files. **We require this number to be > or = to 5,000x. for most studies**.
+  - `Benchmark.txt` has the average coverage (depth) across the benchmark positions described in the Splice-Break paper (https://doi.org/10.1093/nar/gkz164). This value is used for normalization (% calculations) of the large mtDNA deletions, and is also provided within the ‘\<sample\>\_LargeMTDeletions_’ files. **We require this number to be > or = to 5,000x. for most studies**.
 
 
 # Versioning
