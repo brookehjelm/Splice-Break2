@@ -67,9 +67,42 @@ Java (v1.8.0+)
   - --skip_preAlign=no will use bbmap to remove PCR replicates and adapter sequences from FASTQ files prior to alignment. 
   - --skip_preAlign=yes will skip these steps (not suggested unless steps were performed with alternate program).  
 
-**Note: If the user wishes to change any of the command options from the DEFAULT settings (above), all four command options must be specified in ORDER (--align, --ref, --fastq_keep, --skip_preAlign).**
+**Note🥰: If the user wishes to change any of the command options from the DEFAULT settings (above), all four command options must be specified in ORDER (--align, --ref, --fastq_keep, --skip_preAlign).**
 
+# Description of Files in \<logDir\> and \<outputDir\>
+ 
+## \<logDir\>                                                               
+- \<sample\>.log
+  - The `<sample>.log` file contains the input and output read numbers (and %’s) after PCR replicate and adapter removal from bbmap processes, the MapSplice 2 log file information, and the Splice-Break2 processes, filtering and annotation steps.
+ 
+## \<outputDir\>
+- \<sample\>-READ*.deduped.fq
+  - The `<sample>-READ*.deduped.fq` files are the FASTQs after PCR replicate removal (bbmap). File(s) will only be present if --fastq_keep=yes in command line.
+- \<sample\>-READ*.deduped.deAdapt.fq
+  - The `<sample>-READ*.deduped.deAdapt.fq` files are the FASTQs after TruSeq adapter removal (bbmap). File(s) will only be present if --fastq_keep=yes in command line.
+- \<sample\>_mapsplice-timestamp [directory with results; see below for contents]
 
+### Description of Files in \<outputDir\>/\<sample\>_mapsplice-timestamp
+- junctions.txt
+  - The `junctions.txt` file is the initial output of “spliced” reads from MapSplice 2, which is used for Splice-Break2 processing. User should not use this file as will contain false-positives; provided as reference.
+- logs [directory]
+  - The `logs [directory]` contains the log files from MapSplice 2. Important log information for alignment steps is also provided in the \<sample\>.log file located in \<logDir\>.
+- stats.txt
+  - The `stats.txt` file has the read alignment statistics from MapSplice 2.
+- \<sample\>_alignments.bam
+  - The `<sample>_alignments.bam` file is the sorted BAM file after MapSplice 2 alignment.
+- \<sample\>_Coverage.txt
+  - The `<sample>_Coverage.txt` file is a table with coverage (depth) at each base of the rCRS (NC_012920.1) sequence. Primer positions are also annotated, but are only accurate if primers described in the Splice-Break paper were used (5′ -CCGCACAAGAGTGCTACTCTCCTC-3′ and 5′ -GATATTGATTTCACGGAGGATGGTG-3′). This file can be used to create a coverage plot. We suggest plotting Primer_Position on the X-axis and Coverage on the Y-axis, so that plot matches the PCR-amplified linear molecules (if described primers were used).  
+- \<sample\>_LargeMTDeletions_WGS-only_NoPositionFilter.txt
+  - `<sample>_LargeMTDeletions_WGS-only_NoPositionFilter.txt` is the file containing the large mtDNA deletion calls, when no filtering is done with respect to primer position. **This file should only be used for whole genome sequencing (WGS) data when no long-range PCR was performed for mitochondrial enrichment**.                                                                            
+- \<sample\> _LargeMTDeletions_LR-PCR_STRINGENT_pos357-15925.txt
+  - `<sample> _LargeMTDeletions_LR-PCR_STRINGENT_pos357-15925.txt` is the file containing the large mtDNA deletion calls, after removal of deletions that had 5’ or 3’ breakpoints within 500bp of the described primers. **We suggest using this file for downstream analysis when a long-range PCR was performed for mitochondrial enrichment**. **Matches filtering described in the Splice-Break paper (https://doi.org/10.1093/nar/gkz164)**.
+- \<sample\>_LargeMTDeletions_LR-PCR_conservative_pos157-16125.txt
+  - `<sample>_LargeMTDeletions_LR-PCR_conservative_pos157-16125.txt` is the file containing the large mtDNA deletion calls, after removal of deletions that had 5’ or 3’ breakpoints within 250bp of the described primers. **Use with caution as we have observed primer read peaks and false-positive calls that extend past this position**.
+- \<sample\>_LargeMTDeletions_DNAorRNA_Top30_NARpub.txt
+  - `<sample>_LargeMTDeletions_DNAorRNA_Top30_NARpub.txt` is the file containing only the “Top 30 deletions” described in the Splice-Break paper (https://doi.org/10.1093/nar/gkz164). Only deletions that were detected will be present (i.e., will not annotate a “Top 30” deletion to ‘0’ if it was not detected). **This file can be used to examine a small list of high-frequency mtDNA deletions that have been experimentally validated, and can be used for both DNA and RNA datasets**. See [link TBD] for additional information on applicable RNA-Seq data.
+- Benchmark.txt
+  - `Benchmark.txt` has the average coverage (depth) across the benchmark positions described in the Splice-Break paper (https://doi.org/10.1093/nar/gkz164). This value is used for normalization (% calculations) of the large mtDNA deletions, and is also provided within the ‘\<sample\> _LargeMTDeletions_’ files. **We require this number to be > or = to 5,000x. for most studies**.
 
 
 # Versioning
