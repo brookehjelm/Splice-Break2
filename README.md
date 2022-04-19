@@ -92,13 +92,13 @@ Java (v1.8.0+)
 - \<sample\>_LargeMTDeletions_WGS-only_NoPositionFilter.txt
   - `<sample>_LargeMTDeletions_WGS-only_NoPositionFilter.txt` is the file containing the large mtDNA deletion calls, when no filtering is done with respect to primer position. **This file should only be used for whole genome sequencing (WGS) data when no long-range PCR was performed for mitochondrial enrichment**.     
 - \<sample\>_LargeMTDeletions_DNAorRNA_Top30_NARpub.txt
-  - `<sample>_LargeMTDeletions_DNAorRNA_Top30_NARpub.txt` is the file containing only the “Top 30 deletions” described in the Splice-Break paper (https://doi.org/10.1093/nar/gkz164). Only deletions that were detected will be present. **This file can be used to examine a small list of high-frequency mtDNA deletions that have been experimentally validated, and can be used for both DNA and RNA datasets**. See [link TBD] for additional information on applicable RNA-Seq data.
+  - `<sample>_LargeMTDeletions_DNAorRNA_Top30_NARpub.txt` is the file containing only the “Top 30 deletions” described in the Splice-Break paper (https://doi.org/10.1093/nar/gkz164). **This file can be used to examine a small list of high-frequency mtDNA deletions that have been experimentally validated, and can be used for both DNA and RNA datasets**. See [link TBD] for additional information on applicable RNA-Seq data.
 
 ### Coverage and Benchmark Files
 - \<sample\>_Coverage.txt
   - The `<sample>_Coverage.txt` file is a table with coverage (depth) at each base of the rCRS (NC_012920.1) sequence. Primer positions are also annotated, but are only accurate if primers described in the Splice-Break paper were used (5′ -CCGCACAAGAGTGCTACTCTCCTC-3′ and 5′ -GATATTGATTTCACGGAGGATGGTG-3′). This file can be used to create a coverage plot. We suggest plotting Primer_Position on the X-axis and Coverage on the Y-axis, so that plot matches the PCR-amplified linear molecules (if described primers were used).  
 - Benchmark.txt
-  - `Benchmark.txt` has the average coverage (depth) across the benchmark positions described in the Splice-Break paper (https://doi.org/10.1093/nar/gkz164). This value is used for normalization (% calculations) of the large mtDNA deletions, and is also provided within the ‘\<sample\>\_LargeMTDeletions_’ files. **We require this number to be > or = to 5,000x. for most studies**.
+  - `Benchmark.txt` has the average coverage (depth) across the benchmark positions described in the Splice-Break paper (https://doi.org/10.1093/nar/gkz164). This value is used for normalization (% calculations) of the large mtDNA deletions, and is also provided within the ‘\<sample\>\_LargeMTDeletions_’ files. **We require this number to be > or = to 5,000x for most studies**.
 
 ### MapSplice 2 Output Files
 - \<sample\>_alignments.bam
