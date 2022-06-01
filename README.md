@@ -93,6 +93,21 @@ Java (v1.8.0+)
   - `<sample>_LargeMTDeletions_WGS-only_NoPositionFilter.txt` is the file containing the large mtDNA deletion calls, when no filtering is done with respect to primer position. **This file should only be used for whole genome sequencing (WGS) data when no long-range PCR was performed for mitochondrial enrichment**.     
 - \<sample\>_LargeMTDeletions_DNAorRNA_Top30_NARpub.txt
   - `<sample>_LargeMTDeletions_DNAorRNA_Top30_NARpub.txt` is the file containing only the “Top 30 deletions” described in the Splice-Break paper (https://doi.org/10.1093/nar/gkz164). **This file can be used to examine a small list of high-frequency mtDNA deletions that have been experimentally validated, and can be used for both DNA and RNA datasets**. See [link TBD] for additional information on applicable RNA-Seq data.
+- The Column Description of LargeMTDeletions files:
+  - | Column | Description |
+    | --- | --- |
+    | Sample_ID | the ID of Sample |
+    | MapSplice_Breakpoint | the Breakpoint |
+    | 5'_Break | ... |
+    | 3'_Break | ... |
+    | Deletion_Size_bp | ... |
+    | Deletion_Reads | ... |
+    | Benchmark_Coverage | ... |
+    | Deletion_Read_% | ... |
+    | Annotation | ... |
+    | Left_Overhang | ... |
+    | Right_Overhang | ... |
+    | IMPACT_MITOMAP | ... |
 
 ### Coverage and Benchmark Files
 - \<sample\>_Coverage.txt
