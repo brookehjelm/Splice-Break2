@@ -114,10 +114,11 @@ Java (v1.8.0+)
 - junctions.txt
   - The `junctions.txt` file is the initial output of “spliced” reads from MapSplice 2, which is used for Splice-Break2 processing. User should not use this file as will contain false-positives; provided as reference.
 
-
+# Updates
+Version 3.0.1 -- scripting of `LargeMTDeletions_DNAorRNA_Top30_NARpub.txt` updated
 
 # Versioning
-Semantic Versioning 3.0.0
+Semantic Versioning 3.0.1
 
 # Contact
 **Brooke Hjelm**<br/>
