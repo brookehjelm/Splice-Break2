@@ -15,9 +15,9 @@ Python (v2.7.5+)
 Java (v1.8.0+)  
 
 # Installation 
-- Download `Splice-Break2-v3.0.0_PAIRED-END.tar.gz` or `Splice-Break2-v3.0.0_SINGLE-END.tar.gz` 
-- Extract Directory: `tar -xvf Splice-Break2-v3.0.0_PAIRED-END.tar.gz` or `tar -xvf Splice-Break2-v3.0.0_SINGLE-END.tar.gz`
-- Display \<SB_PATH\>: `readlink -f Splice-Break2-v3.0.0_PAIRED-END` or `readlink -f Splice-Break2-v3.0.0_SINGLE-END`
+- Download `Splice-Break2-v3.0.1_PAIRED-END.tar.gz` or `Splice-Break2-v3.0.1_SINGLE-END.tar.gz` 
+- Extract Directory: `tar -xvf Splice-Break2-v3.0.1_PAIRED-END.tar.gz` or `tar -xvf Splice-Break2-v3.0.1_SINGLE-END.tar.gz`
+- Display \<SB_PATH\>: `readlink -f Splice-Break2-v3.0.1_PAIRED-END` or `readlink -f Splice-Break2-v3.0.1_SINGLE-END`
 
 
 # Usage 
@@ -113,7 +113,7 @@ Java (v1.8.0+)
 
 
 # Versioning
-Semantic Versioning 3.0.0
+Semantic Versioning 3.0.1
 
 # Contact
 **Brooke Hjelm**<br/>
